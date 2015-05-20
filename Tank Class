@@ -8,5 +8,16 @@ import java.util*;
 public class Tank 
 {
   //variables
-  public 
+  private double xPos, yPos, xSpeed, ySpeed;
+  private boolean up, down, right, left;
+  private String myName;
+  
+  public Tank(String name)
+  {
+    myName = name;
+  }
+  public String getName()
+  {
+    return myName;  
+  }
 }
