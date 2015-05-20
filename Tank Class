@@ -2,4 +2,11 @@
 //May 2015
 //Tank Class
 
+import java.awt*;
+import java.util*;
 
+public class Tank 
+{
+  //variables
+  public 
+}
