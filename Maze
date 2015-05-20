@@ -1,0 +1,11 @@
+//Eric Lin & Michael Yang
+//TankMaster Foundations CS
+//Mrs. Kim Period 3
+//May 2015
+
+public class Maze
+{
+  //
+  private static final int wallWidth = 6;
+  private 
+}
