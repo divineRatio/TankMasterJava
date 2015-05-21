@@ -12,7 +12,7 @@ public class Maze
       For orientation, 0 represents vertical and 1 represents horizontal.
       As an example, a horizontal wall in the uppermost part of the maze would be: [1][0][0]
   */    
-  private boolean[][][] wall = new boolean[-1][mazeWidth + 1][mazeWidth + 1];
+  private boolean[][][] wall = new boolean[2][mazeWidth + 1][mazeWidth + 1];
   //default constructor
   public Maze()
   {
@@ -32,7 +32,7 @@ public class Maze
   }
   public boolean isThereRightWall(int x, int y)
   {
-    return wall[1][x+1][y]
+    return wall[1][x+1][y];
   }
   public boolean isThereTopWall(int x, int y)
   {
@@ -44,13 +44,48 @@ public class Maze
   }
   private boolean[][][] createMaze()
   {
-    boolean[][][] wall = new boolean[-1][mazeWidth + 1][mazeWidth + 1];
+    boolean[][][] wall = new boolean[2][mazeWidth + 1][mazeWidth + 1];
     for(int i = 0; i < 10; i++) //creates outer-box enclosing the maze
     {
-      wall[1][0][i] = true;     //top
-      wall[1][10][i] = true;    //bottom
-      wall[0][0][i] = true;     //left
-      wall[0][10][i] = true;    //right
+      wall[0][0][i] = true;
+		wall[0][10][i] = true;
+		wall[1][0][i] = true;
+		wall[1][10][i] = true;
     }
+    for (int j = 0; j < 2; j++) 
+    {
+		for (int i = 0; i < 50; i++) 
+      {
+			int rng = (int) (Math.random() * (10));
+			int rng2 = (int) (Math.random() * (10));
+			wall[j][rng][rng2] = true;
+		}
+	}
+    return wall;
+  }
+  public String toString() {
+		String[] lines = new String[11];
+		lines[0] = " ";
+		for (int i = 0; i < 10; i++) {
+			lines[0] = lines[0] + (wall[0][0][i] ? "_" : " ") + " ";
+		}
+		for (int i = 1; i < 11; i++) {
+			lines[i] = "";
+			for (int j = 0; j < 11; j++) {
+				lines[i] = lines[i] + (wall[1][j][i - 1] ? "|" : " ")
+						+ (wall[0][i][j] ? "_" : " ");
+			}
+		}
+		String toReturn = "";
+		for (int i = 0; i < 11; i++) {
+			toReturn = toReturn + lines[i] + "\n";
+		}
+		return toReturn;
+	}
+
+  public static void main(String[] args) 
+  {
+		Maze maze = new Maze();
+		System.out.println(maze);
   }
 }
