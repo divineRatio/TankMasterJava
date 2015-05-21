@@ -1,0 +1,39 @@
+public class Tank
+{
+private double final vel = 0; 
+public Tank()
+   {
+   xPos = 50;
+   yPos = 50;
+   
+   }
+   public void turnRight()
+   {
+   }
+   public void turnLeft()
+   {
+   }
+   public void right()
+   {
+   vel = 1;
+   xPos = xPos + vel;
+   }
+   public void up()
+   {
+   vel = 1;
+   yPos = yPos + vel;
+   }
+   public void down()
+   {
+   vel = -1;
+   yPos = yPos + vel;
+   }
+   public void left()
+   {
+   vel = -1;
+   yPos = yPos + vel;
+   }
+   public void shoot()
+   {
+   }
+   
