@@ -7,10 +7,7 @@ public Tank()
    yPos = 50;
    
    }
-   public void turnRight()
-   {
-   }
-   public void turnLeft()
+   public void rotate()
    {
    }
    public void right()
