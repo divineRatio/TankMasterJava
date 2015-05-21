@@ -5,7 +5,52 @@
 
 public class Maze
 {
-  //
-  private static final int wallWidth = 6;
-  private 
+  //the maze's dimension is 10 x 10 
+  private int mazeWidth = 10;
+  /*  In order to make the walls we used a 3D array of booleans. 
+      We needed three dimensions for the three specifications: orientation, x-placement, and y-placement.
+      For orientation, 0 represents vertical and 1 represents horizontal.
+      As an example, a horizontal wall in the uppermost part of the maze would be: [1][0][0]
+  */    
+  private boolean[][][] wall = new boolean[-1][mazeWidth + 1][mazeWidth + 1];
+  //default constructor
+  public Maze()
+  {
+    wall = createMaze(); //creates Maze
+    //If the tanks spawn inside an enclosed area and can't get out, that's bad.
+    //Therefore, we need to find the enlosed areas, then remove a wall to make them not enclosed again.
+    //Enclosed[][] enclosed = findEnclosedAreas();
+    //while(enclosed.length > 1)
+    //{
+    //  removeWall(enclosed[0]);
+    //  enclosed = findEnclosedAreas();
+    //}
+  }
+  public boolean isThereLeftWall(int x, int y)
+  {
+    return wall[1][x][y];
+  }
+  public boolean isThereRightWall(int x, int y)
+  {
+    return wall[1][x+1][y]
+  }
+  public boolean isThereTopWall(int x, int y)
+  {
+    return wall[0][y][x];
+  }
+  public boolean isThereBottomWall(int x, int y)
+  {
+    return wall[0][y+1][x];
+  }
+  private boolean[][][] createMaze()
+  {
+    boolean[][][] wall = new boolean[-1][mazeWidth + 1][mazeWidth + 1];
+    for(int i = 0; i < 10; i++) //creates outer-box enclosing the maze
+    {
+      wall[1][0][i] = true;     //top
+      wall[1][10][i] = true;    //bottom
+      wall[0][0][i] = true;     //left
+      wall[0][10][i] = true;    //right
+    }
+  }
 }
